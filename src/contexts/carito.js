@@ -16,7 +16,7 @@ export const CaritoComprarProvider =({children})=>{
         console.log(caritoDeCompras);
       };
     return (
-        <Provider value={{ agregarCarritoDeCompras  }}>
+        <Provider value={{ agregarCarritoDeCompras,caritoDeCompras  }}>
              {children}
         </Provider>
        
