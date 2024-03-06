@@ -33,9 +33,9 @@ function SubirProductos() {
         console.log(descripcion);
 
         console.log("fyuera de if")
-        setTimeout(async()=>{
+
           SetshowPoster(true)
-          if (url != "") {
+          
             console.log(`entro el if`);
         try {
           
@@ -53,27 +53,27 @@ function SubirProductos() {
           console.error(`catch`);
           console.error("Error al subir el documento:", error);
         }             
-          }        
+          
           empty()
-        },2000)
+
 
          
         
  
 
       };
-      const conseguiURLdeLaImagen=()=>{
+      const conseguiURLdeLaImagen= async()=>{
         SetshowPoster(true)
         console.log(`conseguiURLdeLaImagen`);
         const imageRef = ref(storage, `productos/${imageUpLoading.name + v4()}`)
-        uploadBytes(imageRef,imageUpLoading).then((snaphost)=>{
+        await uploadBytes(imageRef,imageUpLoading).then((snaphost)=>{
             getDownloadURL(snaphost.ref).then((url)=>{
                 SetUrl(url)
                 console.log(url);
             })
             
           })
-          handlerMandaData()
+        await  handlerMandaData()
       }
       const empty =()=>{
         setImageUpLoading(null);
